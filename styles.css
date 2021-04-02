@@ -1,0 +1,194 @@
+
+
+@media screen and (min-width:900px){
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .too-small{
+        display: none;
+    }
+    body{
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(93, 122, 148);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-content: center;
+    }
+    .container{
+        width: 400px;
+        height: 400px;
+        display: grid;
+        background-color: rgb(93, 122, 148);
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(4,1fr);
+        row-gap: 2px;
+        column-gap:2px;
+        margin: auto;
+    }
+    .container .cell{
+        background-color: aliceblue;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        font-size: 70px;
+    }
+    button{
+        grid-column: 1/4;
+        font-size: 20px;
+        font-family: 'Ranchers', cursive;
+        color: green;
+    }
+    #turn{
+        width: fit-content;
+        font-size: 28px;
+        padding: 5px;
+        margin: auto;
+        text-align: center;
+        font-family: 'Ranchers', cursive;
+    }
+}
+
+@media screen and (max-width:480px) and (min-width:300px){
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .too-small{
+        display: none;
+    }
+    
+    body{
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(93, 122, 148);
+        padding: 5px;
+    }
+    .container{
+        width: 100%;
+        height: fit-content;
+        display: grid;
+        background-color: rgb(93, 122, 148);
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(4,80px);
+        row-gap: 2px;
+        column-gap:2px;
+        position: relative;
+    }
+    .container .cell{
+        background-color: aliceblue;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        font-size: 50px;
+    }
+    button{
+        grid-column: 1/4;
+        font-size: 20px;
+        font-family: 'Ranchers', cursive;
+        color: green;
+    }
+    #turn{
+        width: fit-content;
+        font-size: 28px;
+        padding: 5px;
+        margin: auto;
+        text-align: center;
+        font-family: 'Ranchers', cursive;
+    }
+}
+
+@media screen and (max-width:900px) and (min-width:480px){
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .too-small{
+        display: none;
+    }
+    body{
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(93, 122, 148);
+        padding: 5px;
+    }
+    .container{
+        width: 400px;
+        height: 400px;
+        display: grid;
+        background-color: rgb(93, 122, 148);
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(4,1fr);
+        row-gap: 2px;
+        column-gap:2px;
+        margin: 10px;
+        margin: auto;
+    }
+    .container .cell{
+        background-color: aliceblue;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        font-size: 50px;
+    }
+    button{
+        grid-column: 1/4;
+        font-size: 20px;
+        font-family: 'Ranchers', cursive;
+        color: green;
+    }
+    #turn{
+        width: fit-content;
+        font-size: 28px;
+        padding: 5px;
+        margin: auto;
+        text-align: center;
+        font-family: 'Ranchers', cursive;
+    }
+}
+
+@media screen and (max-width:300px) {
+    * :not(body,.too-small){
+        display: none;
+    }
+    body{
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(93, 122, 148);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-content: center;
+        position: relative;
+    }
+    
+    .too-small{
+        display: block;
+        height: fit-content;
+        width: fit-content;
+        padding: 30px;
+        font-size: 18px;
+        word-wrap: break-word;
+        display: block;
+        position: absolute;
+        z-index: 100;
+        margin: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: rgb(10, 62, 92);
+        color: white;
+    }
+}
