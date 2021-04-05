@@ -20,6 +20,7 @@ let matched = [
     [2,4,6]
 ];
 let num =0;
+let count =0;
 
 let game_board = [0,1,2,3,4,5,6,7,8];
 let previuos = null;
@@ -27,6 +28,12 @@ let previuos = null;
 //It sets a click event to each playable spot in the game 
 cells.forEach((ele,index)=>{
     ele.addEventListener('click',() => {
+        if(gameOver(game_board,game_board[index],false)){
+            for(let element of cells){
+                element.style.background ='black';
+                element.style.color ='white';
+            }
+        }
         for(let element of cells ){
             
             if(element.style.color ==='green'){
@@ -34,10 +41,7 @@ cells.forEach((ele,index)=>{
                 return
             }
         }
-        if(blank_spaces(game_board).length = 0){
-            alert('It\s a tie game');
-            return
-        }
+       
         //if checks if the spot has been played already
         if(ele.innerHTML === 'O'|| ele.innerHTML ==='X')return;
         game_board[index] = turn;
@@ -45,8 +49,14 @@ cells.forEach((ele,index)=>{
         ele.innerHTML = game_board[index];
         //it checks if a person  or a computer won
         let checkWin = checkWinner(game_board);
-        gameOver(game_board,game_board[index],false);
+        let game_over =gameOver(game_board,game_board[index],false);
         //if theres a win in the game then this function runs
+        if(game_over){
+            for(let element of cells){
+                element.style.background ='black';
+                element.style.color ='white';
+            }
+        }
         if(checkWin){
             for(let num of checkWin.nums){
                 cells[num].style.color = 'green'
@@ -66,10 +76,11 @@ cells.forEach((ele,index)=>{
         return
     })
 })
-
+console.log(count)
 function play(){
     let result = aiMove();
-    console.log(result)
+    console.log(count)
+    count =0;
     cells[result.index].click()
     return 
 }
@@ -89,6 +100,7 @@ resetBtn.addEventListener('click',()=>{
     cells.forEach((cell)=>{
         cell.innerHTML='';
         cell.style.color ='black';
+        cell.style.background ='white'
         turn = player2
     });
     for(let i =0;i<9;i++){
@@ -122,10 +134,10 @@ function minimax(gameBoard,player,depth){
     if(emptySpots.length ===0){
         return {score:0}
     }
-    if(depth ===6){
-        return {score:0}
-    }
-
+    // if(depth ===6){
+    //     return {score:0}
+    // }
+    count++
     let all_moves = []
     for(let i = 0;i<emptySpots.length;i++){
         let move = {};
@@ -167,13 +179,12 @@ function minimax(gameBoard,player,depth){
     
 }
 
-if(cells[0].onC){
-    console.log('its clicked')
-}
 function gameOver(board,player,bool){
-    let newBoard = [...board];
-    if(newBoard.length ===1){
+    let newBoard = [...board].filter(item => typeof item === 'number');
+    console.log(newBoard)
+    if(newBoard.length ===0){
        alert('It\'s a tie game')
+       return true
     }else if(bool){
         if(player==='X'){
             alert('Oops you lost')
@@ -181,5 +192,4 @@ function gameOver(board,player,bool){
             alert('You win')
         }
     }
-    return
 }

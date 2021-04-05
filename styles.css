@@ -12,12 +12,13 @@
     body{
         width: 100%;
         height: 100vh;
-        background-color: rgb(93, 122, 148);
+        background-color: rgb(209, 209, 209);
+        font-family: 'Noto Sans TC', sans-serif;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-content: center;
-        align-content: center;
+        align-items: center;
     }
     .container{
         width: 400px;
@@ -41,16 +42,20 @@
     button{
         grid-column: 1/4;
         font-size: 20px;
-        font-family: 'Ranchers', cursive;
+        font-family: 'Noto Sans TC', sans-serif;
         color: green;
+        outline: none;
+        border: none;
+        background-color: black;
     }
     #turn{
         width: fit-content;
+        height: fit-content;
         font-size: 28px;
-        padding: 5px;
+        padding: 0px;
         margin: auto;
         text-align: center;
-        font-family: 'Ranchers', cursive;
+        font-family: 'Noto Sans TC', sans-serif;
     }
 }
 
@@ -65,10 +70,12 @@
     }
     
     body{
+        font-size: 20px;
+        font-family: 'Noto Sans TC', sans-serif;
         position: relative;
         width: 100%;
         height: 100vh;
-        background-color: rgb(93, 122, 148);
+        background-color: rgb(209, 209, 209);
         padding: 5px;
     }
     .container{
@@ -93,16 +100,17 @@
     button{
         grid-column: 1/4;
         font-size: 20px;
-        font-family: 'Ranchers', cursive;
+        font-family: 'Noto Sans TC', sans-serif;
         color: green;
+        background-color: black;
     }
     #turn{
         width: fit-content;
-        font-size: 28px;
+        font-size: 20px;
         padding: 5px;
         margin: auto;
         text-align: center;
-        font-family: 'Ranchers', cursive;
+        font-family: 'Noto Sans TC', sans-serif;
     }
 }
 
@@ -117,9 +125,10 @@
     }
     body{
         position: relative;
+        font-size: 20px;
         width: 100%;
         height: 100vh;
-        background-color: rgb(93, 122, 148);
+        background-color: rgb(209, 209, 209);
         padding: 5px;
     }
     .container{
@@ -145,16 +154,17 @@
     button{
         grid-column: 1/4;
         font-size: 20px;
-        font-family: 'Ranchers', cursive;
+        font-family: 'Noto Sans TC', sans-serif;
         color: green;
+        background-color: black;
     }
     #turn{
         width: fit-content;
-        font-size: 28px;
+        font-size: 20px;
         padding: 5px;
         margin: auto;
         text-align: center;
-        font-family: 'Ranchers', cursive;
+        font-family: 'Noto Sans TC', sans-serif;
     }
 }
 
@@ -163,9 +173,10 @@
         display: none;
     }
     body{
+        font-family: 'Noto Sans TC', sans-serif;
         width: 100%;
         height: 100vh;
-        background-color: rgb(93, 122, 148);
+        background-color: rgb(209, 209, 209);
         display: flex;
         flex-direction: column;
         justify-content: center;
