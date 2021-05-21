@@ -1,4 +1,4 @@
-alert('Hey welcome to Amos\'s TIC-TAC-TOE ,if you can win this game agaisnt the computuer then you will get a $1000 😉🤣😂😂')
+alert('Hey welcome to Amos\'s TIC-TAC-TOE ,Try to PLAY and see if you can win that\'s if you can win!!😉🤣😂😂')
 
 let cells = document.querySelectorAll('.cell');
 let resetBtn = document.querySelector('.reset-btn');
@@ -9,6 +9,7 @@ let player1_claim = '<h1>Player X <br>plays next </h1>',
     player2_claim = '<h1>Player O <br>palys next </h1>',
     whoIs_next =document.getElementById('turn');
 
+//all the winning combos of a match
 let matched = [
     [0,1,2],
     [3,4,5],
@@ -20,20 +21,24 @@ let matched = [
     [2,4,6]
 ];
 let num =0;
-let count =0;
 
+//this is a visual representation of the current board displaed by positions
 let game_board = [0,1,2,3,4,5,6,7,8];
+//previous player
 let previuos = null;
 
 //It sets a click event to each playable spot in the game 
 cells.forEach((ele,index)=>{
     ele.addEventListener('click',() => {
+
+        //calls the gameover function to check if game is a tie to change the game appearamce
         if(gameOver(game_board,game_board[index],false)){
             for(let element of cells){
                 element.style.background ='black';
                 element.style.color ='white';
             }
         }
+        //checks if there is no more games to play or if there is already a winner
         for(let element of cells ){
             
             if(element.style.color ==='green'){
@@ -48,15 +53,18 @@ cells.forEach((ele,index)=>{
         turn === 'O'?turn =aiPlayer:turn =player2;
         ele.innerHTML = game_board[index];
         //it checks if a person  or a computer won
-        let checkWin = checkWinner(game_board);
-        let game_over =gameOver(game_board,game_board[index],false);
-        //if theres a win in the game then this function runs
+        let checkWin = checkWinner(game_board);//returns all the winning positions if a win is found
+        let game_over =gameOver(game_board,game_board[index],false); //returns a boolen value
+
+        //if theres a draw in the game
         if(game_over){
             for(let element of cells){
                 element.style.background ='black';
                 element.style.color ='white';
             }
         }
+
+        //if theres a win in the game then this function runs
         if(checkWin){
             for(let num of checkWin.nums){
                 cells[num].style.color = 'green'
@@ -72,15 +80,12 @@ cells.forEach((ele,index)=>{
                 play()
                 previuos =aiPlayer
             }
-        },500)
+        },0)
         return
     })
 })
-console.log(count)
 function play(){
     let result = aiMove();
-    console.log(count)
-    count =0;
     cells[result.index].click()
     return 
 }
@@ -137,7 +142,6 @@ function minimax(gameBoard,player,depth){
     // if(depth ===6){
     //     return {score:0}
     // }
-    count++
     let all_moves = []
     for(let i = 0;i<emptySpots.length;i++){
         let move = {};
@@ -167,25 +171,19 @@ function minimax(gameBoard,player,depth){
      })
      return all_moves[0]
   }
-
-// return the chosen move (object) from the moves array
-//   return all_moves[bestMove];
-    // all_moves.sort((a,b) => {
-    //     return a-b
-    //})
-
-    // return {score:all_moves[all_moves.length[-1]].score}
-    
-    
 }
-
+//It checks if game is over
 function gameOver(board,player,bool){
+    //returns a newboard consisting only of positions that hasnt been played yet
     let newBoard = [...board].filter(item => typeof item === 'number');
     console.log(newBoard)
+
+    //if no winner or when its a tie game
     if(newBoard.length ===0){
        alert('It\'s a tie game')
        return true
     }else if(bool){
+        //if winner is found
         if(player==='X'){
             alert('Oops you lost')
         }else if(player ==='O'){
